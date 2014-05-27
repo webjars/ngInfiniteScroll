@@ -11,11 +11,24 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>ngInfiniteScroll</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.1.2-SNAPSHOT</version>
     <name>ngInfiniteScroll</name>
     <description>WebJar for ngInfiniteScroll</description>
     <url>http://webjars.org</url>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <upstream.version>1.1.2</upstream.version>
+        <upstream.url>https://raw.github.com/BinaryMuse/ngInfiniteScroll/${upstream.version}/build</upstream.url>
+        <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${upstream.version}</destDir>
+        <requirejs>
+            {
+                "paths": { "ngInfiniteScroll": "ng-infinite-scroll" },
+                "shim": { "ngInfiniteScroll": [ "jquery", "angular" ] }
+            }
+        </requirejs>
+    </properties>
+    
     <developers>
         <developer>
             <id>jamesward</id>
@@ -48,16 +61,9 @@
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>angularjs</artifactId>
-            <version>1.2.13</version>
+            <version>1.2.16-2</version>
         </dependency>
     </dependencies>
-    
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <upstream.version>1.0.0</upstream.version>
-        <upstream.url>https://raw.github.com/BinaryMuse/ngInfiniteScroll/${upstream.version}/build</upstream.url>
-        <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${upstream.version}</destDir>
-    </properties>
     
     <build>
         <plugins>
@@ -96,14 +102,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-release-plugin</artifactId>
-                <version>2.4.2</version>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.apache.maven.scm</groupId>
-                        <artifactId>maven-scm-provider-gitexe</artifactId>
-                        <version>1.9</version>
-                    </dependency>
-                </dependencies>
+                <version>2.5</version>
             </plugin>
 
             <plugin>
